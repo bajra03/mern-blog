@@ -1,0 +1,28 @@
+.button-container {
+  position: relative;
+  margin: 0;
+
+  .button {
+    display: block;
+    padding: 10px;
+    background-color: #231514;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+      background-color: #4d3836;
+      box-shadow: 0 5px 10px 0px rgba(35, 21, 20, 0.3);
+    }
+  }
+}
