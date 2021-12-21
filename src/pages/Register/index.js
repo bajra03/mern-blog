@@ -1,4 +1,5 @@
 import React from 'react'
+import { render } from 'sass';
 import {  RegisterBg2 } from '../../assets';
 import { Button, Gap, Input, Link } from '../../components';
 import './register.scss';
