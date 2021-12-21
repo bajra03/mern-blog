@@ -18,5 +18,12 @@
     width: 460px;
     box-shadow: -2px 2px 20px 0px rgb(0 0 0 / 29%);
     padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .form-container {
+      position: relative;
+    }
   }
 }
