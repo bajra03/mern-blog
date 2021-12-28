@@ -1,14 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header } from '../../components';
+import { Footer, Header } from '../../components';
+import './mainapp.scss'
 
 const MainApp = () => {
-  console.log("logged");
   return (
-    <div>
+    <div className="mainapp-container">
       <Header />
-      <Outlet />
-      <footer>Footer</footer>
+      <div className="content-container">
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   )
 }
