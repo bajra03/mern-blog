@@ -1,6 +1,16 @@
-.content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 1rem 0;
+.home-page-container {
+  .create-blog-wrapper {
+    display: flex;
+    justify-content: end;
+
+    button {
+      width: 200px;
+    }
+  }
+
+  .pagination-wrapper {
+    max-width: 250px;
+    display: flex;
+    margin: 0 auto;
+  }
 }

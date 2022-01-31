@@ -1,8 +1,10 @@
 import React from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import {  LoginBg } from '../../assets';
 import { Button, Gap, Input, Link } from '../../components';
 
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <div className="main-page" style={
       {
@@ -18,9 +20,9 @@ const Login = () => {
           <Gap height={15} />
           <Input label="" placeholder="Password" type="password" id="password" required="true" autocomplete="off" />
           <Gap height={30} />
-          <Button title="Register" type="submit" />
+          <Button title="Login" type="submit" onClick={ () => navigate('/') } />
           <Gap height={20} />
-          <Link title="Register here" />
+          <Link title="Register here" onClick={()=>navigate('/register') } />
         </form>
       </div>
     </div>

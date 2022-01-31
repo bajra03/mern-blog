@@ -9,6 +9,8 @@
   position: relative;
 
   .logo {
+    cursor: pointer;
+
     p {
       margin: 0;
       font-weight: 700;
@@ -17,10 +19,14 @@
   }
 
   .nav-container {
-    p {
-      text-decoration: underline;
-      cursor: pointer;
-      margin: 0;
+    ul {
+      list-style: none;
+
+      li {
+        text-decoration: underline;
+        cursor: pointer;
+        margin: 0;
+      }
     }
   }
 }
