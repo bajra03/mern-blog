@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { BlogItem, Button, Gap } from '../../components'
 import './home.scss';
-import { DummyBlog } from '../../assets';
+// import { DummyBlog } from '../../assets';
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function Home() {
   const [dataBlog, setDataBlog] = useState([]);
+  const stateGlobal = useSelector(state => state);
+  console.log('state global: ', stateGlobal);
+
   const url = 'http://localhost:4000/v1/blog/post';
   useEffect(() => {
     Axios.get(url)
       .then(result => {
-        console.log('Data API: ', result.data.data);
+        // console.log('Data API: ', result.data.data);
         const responseAPI = result.data;
 
         setDataBlog(responseAPI.data);
@@ -30,12 +34,15 @@ function Home() {
         <Button title="Create Blog" onClick={() => navigate('/create-blog')} />
       </div>
       <div className="blog-wrapper">
-        {dataBlog.map(blog => {
-          return <BlogItem key={blog._id} image={`${url}${blog.image}`} title={blog.title} author={blog.author.name} date={blog.createdAt} body={ blog.body } />
+        {dataBlog.map(blogPost => {
+          return <BlogItem
+            key={blogPost._id}
+            image={`http://localhost:4000/${blogPost.image}`}
+            title={blogPost.title}
+            author={blogPost.author.name}
+            date={blogPost.createdAt}
+            body={blogPost.body} />
         }) }
-        {/* <BlogItem thumbnail={ DummyBlog } title="Blog 1" author="Bajra" date="01 Jan 2022" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor quis leo in facilisis. In posuere enim id eros mattis, eget convallis erat tincidunt. Donec id justo at est aliquet vestibulum. Praesent ut bibendum sem. Nam pharetra, mi vel tempor ullamcorper, leo lacus facilisis magna, quis posuere justo magna in neque."/>
-        <BlogItem thumbnail={ DummyBlog } title="Blog 2" author="Bajra" date="01 Jan 2022" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor quis leo in facilisis. In posuere enim id eros mattis, eget convallis erat tincidunt. Donec id justo at est aliquet vestibulum. Praesent ut bibendum sem. Nam pharetra, mi vel tempor ullamcorper, leo lacus facilisis magna, quis posuere justo magna in neque." />
-        <BlogItem thumbnail={ DummyBlog } title="Blog 3" author="Bajra" date="01 Jan 2022" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor quis leo in facilisis. In posuere enim id eros mattis, eget convallis erat tincidunt. Donec id justo at est aliquet vestibulum. Praesent ut bibendum sem. Nam pharetra, mi vel tempor ullamcorper, leo lacus facilisis magna, quis posuere justo magna in neque." /> */}
       </div>
       <div className="pagination-wrapper">
         <Button title="Prev" />
