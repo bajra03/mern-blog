@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import {  LoginBg } from '../../assets';
+import { useNavigate } from 'react-router-dom';
+import { LoginBg } from '../../assets';
 import { Button, Gap, Input, Link } from '../../components';
 
 const Login = () => {
